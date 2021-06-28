@@ -71,8 +71,8 @@ class MA(CandlestickIndicator):
 		filtrar oscilações de preço ajudando na identificação de tendências.
 		"""
 		try:
-			MA = self.df['close'].rolling(window=days).mean()
-			trace_avg = go.Scatter(x=MA.index, y=MA, name='MA', line=dict(color='#BEBECF'), opacity=0.8)
+			ma = self.df['close'].rolling(window=days).mean()
+			trace_avg = go.Scatter(x=ma.index, y=MA, name='MA', line=dict(color='#BEBECF'), opacity=0.8)
 			self.data.append(trace_avg)
 
 		except WBIndicatoImplementedError as e:
@@ -87,10 +87,10 @@ class EMA(CandlestickIndicator):
 		"""
 		try:
 			k = (2 / (days + 1))
-			MA = self.df['close'].rolling(window=days).mean()
-			ema_data = pd.DataFrame(index=MA.index)
+			ma = self.df['close'].rolling(window=days).mean()
+			ema_data = pd.DataFrame(index=ma.index)
 			ema_data['PRICE'] = self.df['close']
-			ema_data['MA'] = MA
+			ema_data['MA'] = ma
 			ema_data['EMA'] = np.NaN
 			ema_data['EMA'][0] = ema_data['MA'][1]
 			for i in range(1, len(ema_data)):
@@ -196,10 +196,10 @@ class IndicatorBuilder():
 
 	def create(self, **kwargs):
 		"""
-		Método responsável por implementar uma vizualização do gráfico
-		traçado e seus indicadores.
+		Implementa um criador de indicadores (Builder Pattern)
 		"""
 		try:
+			
 			self._init_candles(**kwargs)
 			self._on_ma_candle(**kwargs)
 			self._on_ema_candle(**kwargs)
