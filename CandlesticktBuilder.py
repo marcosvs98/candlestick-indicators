@@ -1,11 +1,15 @@
 import logging
-from candlesticks_indicator.CandlestickIndicators import CandlestickChartIndicator
-from candlesticks_indicator.CandlestickIndicators import MA
-from candlesticks_indicator.CandlestickIndicators import EMA
-from candlesticks_indicator.CandlestickIndicators import MACD
-from candlesticks_indicator.CandlestickIndicators import BollingerBands
-from candlesticks_indicator.CandlestickIndicators import TraceCandlesException
-from candlesticks_indicator.CandlestickIndicators import PlottingExeception
+import numpy as np
+import pandas as pd
+import plotly.graph_objects as go
+import plotly.express as px
+from CandlestickIndicators import CandlestickChartIndicator
+from CandlestickIndicators import MA
+from CandlestickIndicators import EMA
+from CandlestickIndicators import MACD
+from CandlestickIndicators import BollingerBands
+from CandlestickIndicators import TraceCandlesException
+from CandlestickIndicators import PlottingExeception
 
 log = logging.getLogger("candlestick-chart-builder")
 
