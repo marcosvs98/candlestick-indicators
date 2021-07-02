@@ -16,7 +16,7 @@ log = logging.getLogger("candlestick-chart-builder")
 
 class CandlestickIndicatorBuilder():
 	"""
-		Implementa um criador de Indicadores (Builder Pattern)
+		Implement an Indicator Builder (Pattern Builder)
 		https://en.wikipedia.org/wiki/Builder_pattern.
 	"""
 	def __init__(self, data, ticker, rangeslider=False):
@@ -45,9 +45,6 @@ class CandlestickIndicatorBuilder():
 			raise ChartIndicatorException(f"Unexpected error while trace candles: {e}")
 
 	def create(self, **kwargs):
-		"""
-		Implementa um criador de indicadores (Builder Pattern)
-		"""
 		try:
 			data = self.data
 
