@@ -16,8 +16,8 @@ log = logging.getLogger("candlestick-chart-builder")
 
 class CandlestickIndicatorBuilder():
 	"""
-		Implement an Indicator Builder (Pattern Builder)
-		https://en.wikipedia.org/wiki/Builder_pattern.
+	Implement an Indicator Builder (Pattern Builder)
+	https://en.wikipedia.org/wiki/Builder_pattern.
 	"""
 	def __init__(self, data, ticker, rangeslider=False):
 		self.data_frame = pd.DataFrame((c for c in data))
